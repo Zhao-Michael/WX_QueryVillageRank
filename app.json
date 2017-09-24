@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#393A3F",
+    "navigationBarTitleText": "苏州公租房排名查询",
+    "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 5000,
+    "connectSocket": 5000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}

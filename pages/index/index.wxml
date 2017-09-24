@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <image class='img' mode='center' src='/image/logo.png'></image>
+  <text class='textplsinput'>请输入身份证号码：</text>
+  <input class='inpputid' type='text' bindinput='bindinput' value="{{ userid }}"></input>
+  <button class='querybutton' bindtap='queryClick'>查 询</button>
+</view>
