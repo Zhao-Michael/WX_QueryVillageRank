@@ -4,4 +4,5 @@
   <text class='textplsinput'>请输入身份证号码：</text>
   <input class='inpputid' type='text' bindinput='bindinput' value="{{ userid }}"></input>
   <button class='querybutton' bindtap='queryClick'>查 询</button>
+  <navigator url="../logs/logs" class='labellog'>查询日志</navigator>
 </view>

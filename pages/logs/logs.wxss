@@ -3,6 +3,9 @@
   flex-direction: column;
   padding: 40rpx;
 }
+
 .log-item {
-  margin: 10rpx;
+  margin: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #D9DaDf;
 }
