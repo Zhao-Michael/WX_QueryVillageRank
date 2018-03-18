@@ -76,48 +76,46 @@ Page({
         'content-type': 'application/x-www-form-urlencoded',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
       },
-      fail: function () {
-        console.log("respone fail")        
+      fail: function (e) {
+        console.log("respone fail")
         wx.hideLoading()
-        wx.showToast({
-          image: '/image/error.png',
-          title: '查询失败！',
-          duration: 2000,
+        wx.showModal({
+          title: "查询失败",
+          content: e['errMsg']
         })
       },
       success: function (res) {
         console.log("respone success")
         wx.hideLoading()
-        try {
-          if (res && res['statusCode'] == 200) {
-            let result = res['data']
-            if (result) {
-              let checkresult = result['result']
-              let ischeckout = result['isCheckOut']
-              let msg = result['prompWord'];
-              let match = msg.match(/【[0-9]{1,}】/g)
-              let rank = 0
-              if (match.length > 0) {
-                rank = match[0].replace('【', '').replace('】', '').trim()
-                const message = '您当前排名为：' + rank + '\r\nIsCheckOut: ' + ischeckout + '\r\nResult: ' + checkresult
-                saveDataToLog(_this, message)
-                wx.showModal({
-                  showCancel: false,
-                  content: message,
-                })
-                return;
-              }
-            }
-          }
-        } catch (e) {
-          console.log(e)
-        }
+        console.log(res)
 
-        wx.showToast({
-          image: '/image/error.png',
-          title: '内容解析错误！',
-          duration: 2000,
-        })
+        if (res && res['statusCode'] == 200) {
+          try {
+            res = res['data']
+
+            var re_msg1 = 'result: ' + res['result'] + '\n'
+            var re_msg2 = 'prompWord: ' + res['prompWord'] + '\n'
+            var re_msg3 = 'isCheckOut: ' + res['isCheckOut'] + '\n'
+            var re_msg = re_msg1 + re_msg2 + re_msg3
+
+            wx.showModal({
+              content: re_msg
+            })
+
+          } catch (e) {
+            wx.showToast({
+              image: '/image/error.png',
+              title: e.message,
+              duration: 2000,
+            })
+          }
+        } else {
+          wx.showToast({
+            image: '/image/error.png',
+            title: '获取服务器响应失败',
+            duration: 2000,
+          })
+        }
       }
     })
 
