@@ -5,4 +5,6 @@
   <input class='inpputid' type='text' bindinput='bindinput' value="{{ userid }}"></input>
   <button class='querybutton' bindtap='queryClick'>查 询</button>
   <navigator url="../logs/logs" class='labellog'>查询日志</navigator>
+
+  <text>小程序要求ICP备案的 Https 支持, 办理很麻烦，目前功能暂无法使用！</text>
 </view>

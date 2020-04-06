@@ -12,6 +12,8 @@
 	"appid": "wx461030e0c85b12b9",
 	"projectname": "QueryVillageRank",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
