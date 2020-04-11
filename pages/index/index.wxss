@@ -43,3 +43,7 @@
 .labellog:active {
   color: #37a30f;
 }
+
+.description {
+  margin: 15px;
+}
